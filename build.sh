@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 if [[ $(ls /usr/lib/libraylib.so) ]]; then
 	mkdir build
 	cd build
