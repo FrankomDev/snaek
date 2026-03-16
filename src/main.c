@@ -15,9 +15,15 @@ int main() {
 
   while (!WindowShouldClose()) {
 
-    if (get_state() == GAME) {
+    switch (get_state()) {
+    case GAME:
       snake_update();
       item_detect_collision();
+      break;
+    case END:
+      if (IsKeyPressed(KEY_ENTER))
+        restart_game();
+      break;
     }
 
     BeginDrawing();
@@ -47,6 +53,9 @@ int main() {
       width = MeasureText(print_score, font_size);
       DrawText(print_score, GetScreenWidth() / 2 - width / 2, 200, font_size,
                RED);
+      text = "ENTER to restart";
+      width = MeasureText(text, font_size);
+      DrawText(text, GetScreenWidth() / 2 - width / 2, 400, font_size, RED);
       break;
     }
     }

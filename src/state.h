@@ -4,6 +4,7 @@
 typedef enum { GAME, END } state;
 
 void end_game();
+void restart_game();
 state get_state();
 
 extern int score;
